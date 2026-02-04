@@ -5,8 +5,7 @@ swipe right or left to apply or skip the job. When you swipe right it tailor
 your resume to find the job position.
 
 ## Instalaiton
-java script
-html
+java script, html, css
 ## Usage
 run with the web browser
 ### Authors
