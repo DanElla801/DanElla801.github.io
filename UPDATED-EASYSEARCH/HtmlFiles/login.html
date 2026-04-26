@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasySearch Login</title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="../styles/login.css">
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <div class="left-content">
+        <img src="../images/logo.png" alt="Logo" class="logo">
+
+        <h1>EasySearch</h1>
+        <p>Swipe for your next career.</p>
+
+        <a href="../HtmlFiles/index.html" class="left-btn">Back to Home</a>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+      <div class="form-box">
+
+        
+
+        <div class="tabs">
+          <button class="tab-btn active" onclick="showForm('login')">Login</button>
+          <button class="tab-btn" onclick="showForm('signup')">Signup</button>
+        </div>
+
+        <!-- LOGIN -->
+        <form id="loginForm" class="active-form">
+          <input type="email" placeholder="Email Address" required>
+          <input type="password" placeholder="Password" required>
+
+          <label class="remember">
+            <input type="checkbox"> Remember Me
+          </label>
+
+         <button type="submit" class="main-btn">Log In</button>
+          <a href="#" class="forgot">Forgot Password?</a>
+        </form>
+
+        <!-- SIGNUP -->
+        <form id="signupForm">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="password" placeholder="Password" required>
+          <input type="password" placeholder="Confirm Password" required>
+
+          <button type="submit" class="main-btn">Create Account</button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Link JS -->
+  <script src="../javaScript/login.js"> </script>
+
+
+</body>
+</html>

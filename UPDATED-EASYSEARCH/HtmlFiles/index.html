@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
+  <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+  <div class="left-header">
+    <img src="../images/logo.png" alt="EasySearch logo" class="logo">
+  </div>
+
+  <nav>
+    <a href="../HtmlFiles/index.html" class="active">Home</a>
+    <a href="../HtmlFiles/jobs.html">Jobs</a>
+    <a href="../HtmlFiles/about.html">About</a>
+    <a href="../HtmlFiles/help.html">Help</a>
+
+    <!-- LOGIN -->
+    <a href="../HtmlFiles/login.html" class="login" id="loginBtn">
+      Login / Sign up
+    </a>
+
+    <!-- USER -->
+    <span id="welcomeUser"></span>
+
+    <!-- LOGOUT -->
+    <button id="logoutBtn" style="display:none;">Logout</button>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <h1>Swipe For Your Next Career</h1>
+  <p>Explore millions of job opportunities.</p>
+
+  <div class="search-wrapper">
+  <div class="search-item">
+    <i class="fa fa-search"></i>
+    <input type="text" id="homeJobSearch" placeholder="Job title, keywords, or company">
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="search-item">
+    <i class="fa fa-map-marker-alt"></i>
+    <input type="text" id="homeLocationSearch" placeholder="Location">
+  </div>
+
+  <button class="search-btn" id="homeSearchBtn">Find jobs</button>
+</div>
+</section>
+
+<section class="logo-slider">
+  <div class="logos">
+    <img src="../images/amazon.png">
+    <img src="../images/apple.png">
+    <img src="../images/google.webp">
+    <img src="../images/microsoft.png">
+    <img src="../images/shopify.png">
+    <img src="../images/Samsung.png">
+    <img src="../images/metro.png">
+    <img src="../images/homedepot.png">
+
+    <img src="../images/amazon.png">
+    <img src="../images/apple.png">
+    <img src="../images/google.webp">
+    <img src="../images/microsoft.png">
+    <img src="../images/shopify.png">
+    <img src="../images/Samsung.png">
+    <img src="../images/metro.png">
+    <img src="../images/homedepot.png">
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>&copy; 2026 EasySearch</div>
+
+  <div class="social">
+    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const user = JSON.parse(localStorage.getItem("easySearchCurrentUser"));
+  const welcomeUser = document.getElementById("welcomeUser");
+  const loginBtn = document.getElementById("loginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  if (user && user.fullName) {
+    if (welcomeUser) {
+      welcomeUser.textContent = user.fullName;
+    }
+
+    if (loginBtn) {
+      loginBtn.style.display = "none";
+    }
+
+    if (logoutBtn) {
+      logoutBtn.style.display = "inline-block";
+    }
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
+      localStorage.removeItem("easySearchCurrentUser");
+      localStorage.removeItem("username");
+      window.location.href = "../HtmlFiles/login.html";
+    });
+  }
+
+  const jobInput = document.getElementById("homeJobSearch");
+  const locationInput = document.getElementById("homeLocationSearch");
+  const searchBtn = document.getElementById("homeSearchBtn");
+
+  function goToJobsSearch() {
+    const title = jobInput.value.trim();
+    const location = locationInput.value.trim();
+
+    const params = new URLSearchParams();
+
+    if (title) {
+      params.set("title", title);
+    }
+
+    if (location) {
+      params.set("location", location);
+    }
+
+    window.location.href = `../HtmlFiles/jobs.html?${params.toString()}`;
+  }
+
+  if (searchBtn) {
+    searchBtn.addEventListener("click", goToJobsSearch);
+  }
+
+  if (jobInput) {
+    jobInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        goToJobsSearch();
+      }
+    });
+  }
+
+  if (locationInput) {
+    locationInput.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        goToJobsSearch();
+      }
+    });
+  }
+});
+</script>
+
+  <script src="../javaScript/navUser.js"></script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(to right, rgb(92, 43, 52), rgb(232, 105, 112), rgb(92, 50, 57));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 28px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #2f0d0d;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav a.active {
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 4px;
+}
+
+.login {
+    border: 2px solid white;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 22px;
+}
+
+.login:hover {
+    background-color: white;
+    color: #b14f5a;
+}
+
+.welcome-user {
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    display: inline-flex;
+    align-items: center;
+}
+
+.logout-btn {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 22px;
+    background: white;
+    color: #7b2d3a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #f3dfe3;
+}
+
+.register {
+    background-color: white;
+    color: #b14f5a;
+    padding: 8px 18px;
+    border-radius: 22px;
+}
+
+.register:hover {
+    background-color: #8e3f48;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    margin-top: 110px;
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, rgb(92, 43, 52), rgb(232, 105, 112));
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+/* SEARCH */
+.search-box {
+    background: white;
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.search-box i {
+    color: gray;
+    margin-right: 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    background: transparent;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 0 0 3px rgba(232, 105, 112, 0.3);
+}
+
+/* SUPPORT CARDS */
+.support-info {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+}
+
+.info-card i {
+    font-size: 32px;
+    color: rgb(232, 105, 112);
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.info-card p {
+    color: #555;
+}
+
+/* FAQ */
+.help-section {
+    padding: 40px 20px 80px;
+}
+
+.help-container {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.help-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #111827;
+}
+
+.faq-item {
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 18px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.faq-question .icon {
+    color: rgb(232, 105, 112);
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px 18px;
+    background: #f9f9f9;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .icon {
+    transform: rotate(45deg);
+}
+
+.no-results {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+    font-weight: 500;
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(to right, rgb(92, 43, 52), rgb(232, 105, 112), rgb(92, 50, 57));
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+footer .social a {
+    color: white;
+    margin-left: 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+footer .social a:hover {
+    color: #ffdede;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .support-info {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        padding: 12px 16px;
+        gap: 10px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 4px 6px;
+        font-size: 16px;
+    }
+
+    .welcome-user {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .hero {
+        margin-top: 160px;
+        padding: 55px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .search-box {
+        width: 95%;
+        padding: 10px 14px;
+    }
+
+    .search-box input {
+        font-size: 0.95rem;
+    }
+
+    .help-container {
+        padding: 22px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}

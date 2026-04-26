@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | EasySearch</title>
+<link rel="stylesheet" href="../styles/about.css">
+<link rel="icon" type="image/x-icon" href="../images/logo.png">
+</head>
+
+<body>
+
+<header>
+    <div class="left-header">
+        <img src="../images/logo.png" alt="EasySearch Logo" class="logo">
+    </div>
+
+    <nav>
+        <a href="../HtmlFiles/index.html">Home</a>
+        <a href="../HtmlFiles/jobs.html">Jobs</a>
+        <a href="../HtmlFiles/about.html" class="active">About</a>
+        <a href="../HtmlFiles/help.html">Help</a>
+
+        <!-- LOGIN -->
+        <a href="../HtmlFiles/login.html" class="login" id="loginBtn">
+            Login / Sign up
+        </a>
+
+        <!-- USER NAME -->
+        <span id="welcomeUser"></span>
+
+        <!-- LOGOUT -->
+        <button id="logoutBtn" style="display:none;">Logout</button>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Find Opportunities Faster</h1>
+        <p>
+            EasySearch is a modern platform built to help students and early-career professionals
+            navigate the job market more efficiently. We bring together internships, co-op
+            placements, and entry-level roles in one place.
+        </p>
+        <a href="../HtmlFiles/jobs.html" class="cta-btn">Start Exploring Jobs</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-split">
+    <div class="about-text">
+        <h2>About EasySearch</h2>
+        <p>
+            EasySearch is a student-developed platform designed to simplify job searching.
+            We provide a clean and user-friendly experience for students and beginners.
+        </p>
+
+        <p>
+            Whether you're a student or a graduate, EasySearch helps you explore opportunities
+            and move forward with confidence.
+        </p>
+    </div>
+
+    <div class="about-box">
+        <h3>Our Mission</h3>
+        <p>
+            To simplify the job search experience for students and entry-level job seekers.
+        </p>
+
+        <h3>Our Vision</h3>
+        <p>
+            To become a trusted platform connecting talent with opportunities.
+        </p>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <h2>What You Can Do</h2>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>Search Jobs Easily</h3>
+            <p>Find jobs quickly with simple search tools.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Apply Easily</h3>
+            <p>No complicated process — just apply.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Student Focused</h3>
+            <p>Perfect for beginners and students.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+    <h2 class="team-title">Meet the Team</h2>
+
+    <div class="team-grid">
+
+        <div class="team-card">
+            <img src="../images/Danella.jpeg" alt="Danella">
+            <h3>Danella Abram</h3>
+            <p>Frontend Developer</p>
+        </div>
+
+        <div class="team-card">
+            <img src="../images/mathew.png.jpeg" alt="Matthew">
+            <h3>Matthew Esume</h3>
+            <p>Backend Developer</p>
+        </div>
+
+        <div class="team-card">
+            <img src="../images/Christine.png" alt="Christine">
+            <h3>Christine Manjares</h3>
+            <p>UI/UX Designer</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <h2>Ready to Start?</h2>
+    <a href="../HtmlFiles/login.html" class="cta-btn big">Create Account</a>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 EasySearch. All rights reserved.</p>
+
+    <div class="social">
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+    </div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("easySearchCurrentUser"));
+    const welcomeUser = document.getElementById("welcomeUser");
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (user && user.fullName) {
+        welcomeUser.textContent = user.fullName;
+
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+    }
+
+    logoutBtn.addEventListener("click", function () {
+        localStorage.removeItem("easySearchCurrentUser");
+        localStorage.removeItem("username");
+        window.location.href = "../HtmlFiles/login.html";
+    });
+});
+</script>
+
+  <script src="../javaScript/navUser.js"></script>
+</body>
+</html>

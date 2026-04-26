@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help | EasySearch</title>
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
+  <link rel="stylesheet" href="../styles/help.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <div class="left-header">
+      <img src="../images/logo.png" alt="EasySearch logo" class="logo">
+    </div>
+
+    <nav>
+      <a href="../HtmlFiles/index.html">Home</a>
+      <a href="../HtmlFiles/jobs.html">Jobs</a>
+      <a href="../HtmlFiles/about.html">About</a>
+      <a href="../HtmlFiles/help.html" class="active">Help</a>
+
+      <a href="../HtmlFiles/login.html" class="login" id="loginBtn">
+        Login / Sign up
+      </a>
+
+      <span id="welcomeUser" class="welcome-user" style="display: none;"></span>
+      <button id="logoutBtn" class="logout-btn" style="display: none;">Logout</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>How can we help you today?</h1>
+    <p>
+      Find answers, explore features, and get support with your job search on EasySearch.
+    </p>
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="helpSearch" placeholder="Search help topics...">
+    </div>
+  </section>
+
+  <section class="support-info">
+    <div class="info-card">
+      <i class="fa-solid fa-user"></i>
+      <h3>Create Your Profile</h3>
+      <p>Sign up, manage your account, and update your information easily.</p>
+    </div>
+
+    <div class="info-card">
+      <i class="fa-solid fa-briefcase"></i>
+      <h3>Find the Right Jobs</h3>
+      <p>Search jobs by title, location, and filters to match your goals.</p>
+    </div>
+
+    <div class="info-card">
+      <i class="fa-solid fa-bookmark"></i>
+      <h3>Manage Your Jobs</h3>
+      <p>Save jobs, track applications, and stay organized.</p>
+    </div>
+  </section>
+
+  <section class="help-section">
+    <div class="help-container">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do I create an account?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Click Register in the navigation bar and fill in your details to get started.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do I search for jobs?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Use the Jobs page and enter keywords or locations to find matching jobs.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does the application process work?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Open a job posting, read the details, and click Apply to continue with the job application.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I save jobs for later?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes, you can save jobs and come back to them later from your saved jobs section.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do I contact support?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Email us at <strong>support@easysearch.com</strong> and our team will respond as soon as possible.
+          </div>
+        </div>
+      </div>
+
+      <p id="noResults" class="no-results">No matching help topics found.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div>&copy; 2026 EasySearch</div>
+
+    <div class="social">
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    const items = document.querySelectorAll(".faq-item");
+    const searchInput = document.getElementById("helpSearch");
+    const noResults = document.getElementById("noResults");
+
+    items.forEach(item => {
+      item.querySelector(".faq-question").addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
+
+    searchInput.addEventListener("input", function () {
+      const value = this.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const question = item.querySelector(".faq-question span").textContent.toLowerCase();
+        const answer = item.querySelector(".faq-answer").textContent.toLowerCase();
+
+        if (question.includes(value) || answer.includes(value)) {
+          item.style.display = "block";
+          visibleCount++;
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      if (visibleCount === 0) {
+        noResults.style.display = "block";
+      } else {
+        noResults.style.display = "none";
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentUser = JSON.parse(localStorage.getItem("easySearchCurrentUser"));
+      const welcomeUser = document.getElementById("welcomeUser");
+      const loginBtn = document.getElementById("loginBtn");
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      if (currentUser && currentUser.fullName) {
+        welcomeUser.textContent = currentUser.fullName;
+        welcomeUser.style.display = "inline-block";
+
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+      }
+
+      logoutBtn.addEventListener("click", function () {
+        localStorage.removeItem("easySearchCurrentUser");
+        localStorage.removeItem("username");
+        window.location.href = "../HtmlFiles/login.html";
+      });
+    });
+  </script>
+
+  <script src="../javaScript/navUser.js"></script>
+</body>
+</html>

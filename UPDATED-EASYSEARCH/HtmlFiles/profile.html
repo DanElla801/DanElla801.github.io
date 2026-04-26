@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile | EasySearch</title>
+  <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="../styles/profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="profile-page">
+  <header>
+    <div class="left-header">
+      <img src="../images/logo.png" alt="EasySearch logo" class="logo">
+    </div>
+
+    <nav>
+      <a href="../HtmlFiles/index.html">Home</a>
+      <a href="../HtmlFiles/jobs.html">Jobs</a>
+      <a href="../HtmlFiles/about.html">About</a>
+      <a href="../HtmlFiles/help.html">Help</a>
+      <a href="../HtmlFiles/profile.html" class="login active" id="loginBtn"><i class="fa fa-user"></i> Profile</a>
+      <span id="welcomeUser"></span>
+    </nav>
+  </header>
+
+  <main class="profile-main">
+    <section class="profile-hero">
+      <h1>My Profile</h1>
+      <p>Update your details so job applications can fill in faster.</p>
+    </section>
+
+    <section id="loggedOutProfile" class="profile-card logged-out-card hidden">
+      <div class="profile-avatar"><i class="fa-solid fa-user-lock"></i></div>
+      <h2>You are not logged in</h2>
+      <p>Please log in or create an account to edit your personal profile.</p>
+      <a href="../HtmlFiles/login.html" class="profile-main-btn">Login / Sign up</a>
+    </section>
+
+    <section id="loggedInProfile" class="profile-layout hidden">
+      <aside class="profile-summary-card">
+        <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+        <h2 id="profileDisplayName">User Name</h2>
+        <p id="profileDisplayEmail">email@example.com</p>
+        <div class="profile-status">Logged in</div>
+        <button type="button" id="logoutBtn" class="logout-btn">Log out</button>
+      </aside>
+
+      <form id="profileForm" class="profile-card profile-form">
+        <h2>Profile Settings</h2>
+        <p class="form-note">These details are saved in the browser using localStorage for this class project.</p>
+
+        <div class="form-row">
+          <label for="profileName">Full name</label>
+          <input type="text" id="profileName" required>
+        </div>
+
+        <div class="form-row">
+          <label for="profileEmail">Email</label>
+          <input type="email" id="profileEmail" required>
+        </div>
+
+        <div class="form-row">
+          <label for="profilePhone">Phone number</label>
+          <input type="text" id="profilePhone" placeholder="Add phone number">
+        </div>
+
+        <div class="form-row">
+          <label for="profileLocation">Location</label>
+          <input type="text" id="profileLocation" placeholder="Toronto, ON">
+        </div>
+
+        <div class="form-row">
+          <label for="profileJobType">Preferred job type</label>
+          <select id="profileJobType">
+            <option value="">Choose one</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Remote">Remote</option>
+            <option value="Internship">Internship</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="profileSkills">Skills</label>
+          <textarea id="profileSkills" placeholder="Example: HTML, CSS, JavaScript, customer service"></textarea>
+        </div>
+
+        <button type="submit" class="profile-main-btn">Save Profile</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div>&copy; 2026 EasySearch</div>
+    <div class="social">
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script src="../javaScript/navUser.js"></script>
+  <script src="../javaScript/profile.js"></script>
+</body>
+</html>

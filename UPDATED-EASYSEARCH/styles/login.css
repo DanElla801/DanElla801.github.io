@@ -1,0 +1,146 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, rgb(92,43,52), rgb(232,105,112), rgb(92,50,57));
+}
+
+/* MAIN BOX */
+.container {
+  width: 90%;
+  max-width: 1300px;
+  height: 85vh;
+  display: flex;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #f8f4f4;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* LEFT SIDE */
+.left-panel {
+  width: 50%;
+  background: linear-gradient(to bottom right, rgb(92,43,52), rgb(232,105,112));
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-content {
+  text-align: center;
+}
+
+.logo {
+  width: 90px;
+  margin-bottom: 20px;
+}
+
+.left-panel h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.left-panel p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.left-btn {
+  padding: 12px 25px;
+  background: white;
+  color: rgb(92,43,52);
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* RIGHT SIDE */
+.right-panel {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.user-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: rgb(92,43,52);
+  color: white;
+}
+
+/* FORMS */
+form {
+  display: none;
+}
+
+form.active-form {
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+}
+
+/* BUTTON */
+.main-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, rgb(92,43,52), rgb(232,105,112));
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* EXTRA */
+.remember {
+  display: block;
+  text-align: left;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.forgot {
+  display: block;
+  margin-top: 10px;
+  color: rgb(92,43,52);
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Jobs | EasySearch</title>
+ <link rel="stylesheet" href="../styles/home.css">
+ <link rel="stylesheet" href="../styles/jobs.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <link rel="icon" type="image/x-icon" href="../images/logo.png">
+</head>
+<body class="job-page">
+ <header>
+  <div class="left-header">
+    <img src="../images/logo.png" alt="EasySearch logo" class="logo">
+  </div>
+
+  <nav>
+    <a href="../HtmlFiles/index.html">Home</a>
+    <a href="../HtmlFiles/jobs.html" class="active">Jobs</a>
+    <a href="../HtmlFiles/about.html">About</a>
+    <a href="../HtmlFiles/help.html">Help</a>
+
+    <!-- LOGIN -->
+    <a href="../HtmlFiles/login.html" class="login" id="loginBtn">
+      Login / Sign up
+    </a>
+
+    <!-- USER -->
+    <span id="welcomeUser"></span>
+
+    <!-- LOGOUT -->
+    <button id="logoutBtn" style="display:none;">Logout</button>
+  </nav>
+</header>
+
+ <main>
+  <section class="job-hero">
+   <h1>Swipe For Your Next Job</h1>
+   <p>Browse jobs the easy way. Swipe right to save, left to skip, or use the search tools to narrow things down.</p>
+
+   <div class="job-search">
+    <input type="text" id="jobTitleSearch" placeholder="Search job title or company">
+    <input type="text" id="jobLocationSearch" placeholder="Location">
+    <select id="jobTypeFilter" aria-label="Filter by job type">
+     <option value="">All Types</option>
+     <option value="Full-time">Full-time</option>
+     <option value="Part-time">Part-time</option>
+     <option value="Hybrid">Hybrid</option>
+     <option value="Contract">Contract</option>
+     <option value="Internship">Internship</option>
+    </select>
+    <button id="searchJobsBtn" type="button">Search</button>
+   </div>
+
+   <div class="quick-filters" aria-label="Quick filters">
+    <button class="filter-chip active" data-filter="">All</button>
+    <button class="filter-chip" data-filter="Entry level">Entry level</button>
+    <button class="filter-chip" data-filter="Student friendly">Student friendly</button>
+    <button class="filter-chip" data-filter="Remote">Remote</button>
+    <button class="filter-chip" data-filter="$">With salary</button>
+   </div>
+  </section>
+
+  <section class="swipe-section">
+   <div class="section-heading">
+    <div>
+     <h2>Job Match Cards</h2>
+     <p>Try the swipe-style job picker.</p>
+    </div>
+    <div class="results-pill" id="resultsCount">0 jobs found</div>
+   </div>
+
+   <div class="swipe-layout">
+    <div class="swipe-board">
+     <div class="swipe-status swipe-status-left">NOPE</div>
+     <div class="swipe-status swipe-status-right">LIKE</div>
+     <div class="card-stack" id="cardStack"></div>
+
+     <div class="swipe-buttons">
+      <button type="button" class="swipe-btn dismiss" id="dismissBtn" aria-label="Skip this job">
+       <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button type="button" class="swipe-btn save" id="saveBtn" aria-label="Save this job">
+       <i class="fa-solid fa-heart"></i>
+      </button>
+     </div>
+     <p class="swipe-note">Tip: use your mouse to drag the top card or press the buttons below.</p>
+    </div>
+
+    <aside class="saved-panel">
+     <div class="saved-header">
+      <h3>Saved Jobs</h3>
+      <button type="button" id="clearSavedBtn">Clear</button>
+     </div>
+     <div class="saved-jobs" id="savedJobsList">
+      <p class="saved-empty">Jobs you like will show up here.</p>
+     </div>
+    </aside>
+   </div>
+  </section>
+
+  <section class="job-listings">
+   <div class="section-heading browse-heading">
+    <div>
+     <h2>Browse More Jobs</h2>
+     <p>Same matches, shown in a regular grid.</p>
+    </div>
+   </div>
+
+   <div class="job-grid" id="jobGrid"></div>
+  </section>
+ </main>
+
+  <div class="apply-modal hidden" id="applyModal" aria-hidden="true">
+   <div class="apply-modal-content">
+    <button type="button" class="close-modal" id="closeApplyModal" aria-label="Close application form">&times;</button>
+    <h3 id="applyJobTitle">Apply for a job</h3>
+    <p class="apply-modal-subtext" id="applyJobCompany">Complete this quick application form.</p>
+
+    <form id="applyForm" class="apply-form">
+     <input type="text" id="applicantName" placeholder="Full name" required>
+     <input type="email" id="applicantEmail" placeholder="Email address" required>
+     <input type="text" id="applicantPhone" placeholder="Phone number" required>
+     <label for="applicantResume" class="resume-upload-label">Upload resume</label>
+     <input type="file" id="applicantResume" accept=".pdf,.doc,.docx" required>
+     <p class="resume-upload-note">Accepted files: PDF, DOC, DOCX</p>
+     <button type="submit" class="submit-application-btn">Submit Application</button>
+    </form>
+   </div>
+  </div>
+
+
+ <footer>
+  <div>&copy; 2026 EasySearch</div>
+  <div class="social">
+   <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+   <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+   <a href="#"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+ </footer>
+
+ <script src="../javaScript/jobs.js"></script>
+  <script src="../javaScript/navUser.js"></script>
+</body>
+</html>
